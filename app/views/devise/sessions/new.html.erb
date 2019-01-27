@@ -9,13 +9,23 @@
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field">
             <%= f.label :email %><br />
+            <div class='input-group'>
+              <div class='input-group-addon'>
+                <%= fa_icon 'envelope-o' %>
+              </div>
             <%= f.email_field :email, class: 'form-control', required: 'required',
             placeholder: 'Digite o e-mail', autofocus: true, autocomplete: "email" %>
+            </div>
           </div>
 
           <div class="field">
             <%= f.label :password %><br />
+            <div class='input-group'>
+              <div class='input-group-addon'>
+                <%= fa_icon 'asterisk' %>
+              </div>
             <%= f.password_field :password, class: 'form-control', required: 'required', placeholder: 'Digite a senha', autocomplete: "current-password" %>
+            </div>
           </div>
 
           <% if devise_mapping.rememberable? -%>
@@ -32,7 +42,7 @@
         
         <div class='field'><br>
         <%= link_to user_facebook_omniauth_authorize_path, 
-        class: 'btn btn-primary btn-lg' do %>
+        class: 'btn btn-primary btn-lg'  do %>
           <%= fa_icon 'facebook' %> Sign in with Facebook
         <% end %> 
         </div>
