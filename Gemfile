@@ -62,6 +62,7 @@ group :development, :test do
   gem 'redis'
   gem 'rspec-rails'
   gem 'delayed_job'
+  gem 'mailcatcher'
 end
 
 group :development do
