@@ -1,9 +1,11 @@
+# frozen_string_literal: true
 class User < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook]
+         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   def self.new_with_session(params, session)
 	  super.tap do |user|
@@ -12,6 +14,21 @@ class User < ApplicationRecord
 	      user.email = data["email"] if user.email.blank?
 	    end
 	  end
+  end
+
+  def self.from_omniauth_o2(access_token)
+    data = access_token.info
+    user = User.where(email: data['email']).first
+
+    unless (user)
+      user = User.create({
+        name: data['name'].titleize,
+        email: data['email'],
+        image: data['picture'],
+        password: Devise.friendly_token[0,20]
+      })
+    end
+    user
   end
 
   def self.from_omniauth(auth)

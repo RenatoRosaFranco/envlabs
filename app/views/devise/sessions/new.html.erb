@@ -33,8 +33,15 @@
         <div class='field'><br>
         <%= link_to user_facebook_omniauth_authorize_path, 
         class: 'btn btn-primary btn-lg' do %>
-          <i class='fa fa-facebook'></i> Sign in with Facebook
+          <%= fa_icon 'facebook' %> Sign in with Facebook
         <% end %> 
+        </div>
+
+        <div class="field"><br>
+        <%= link_to user_google_oauth2_omniauth_authorize_path,
+        class: 'btn btn-danger btn-lg' do %>
+          <%= fa_icon 'google' %> Sign in with Google
+        <% end %>
         </div>
 
         <!-- <%= render "devise/shared/links" %> -->

@@ -13,8 +13,14 @@ Devise.setup do |config|
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
-  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], 
+  config.omniauth :facebook, 
+    ENV['FACEBOOK_APP_ID'], 
+    ENV['FACEBOOK_APP_SECRET'],
   callback_url: "http://localhost:3000/users/auth/facebook/callback"
+
+  config.omniauth :google_oauth2, 
+    ENV['GOOGLE_CLIENT_ID'], 
+    ENV['GOOGLE_CLIENT_SECRET'], {}
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,

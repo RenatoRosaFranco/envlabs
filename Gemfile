@@ -66,6 +66,7 @@ group :development, :test do
   gem 'omniauth-facebook'
   gem 'omniauth-google-oauth2'
   gem 'clockwork'
+  gem "font-awesome-rails"
 end
 
 group :development do
