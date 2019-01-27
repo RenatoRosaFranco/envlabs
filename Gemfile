@@ -63,6 +63,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'delayed_job'
   gem 'mailcatcher'
+  gem 'omniauth-facebook'
+  gem 'omniauth-google-oauth2'
+  gem 'clockwork'
 end
 
 group :development do
